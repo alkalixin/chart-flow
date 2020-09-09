@@ -1,18 +1,17 @@
-'use strict';
-import Vue from 'vue';
-import ElementUI from 'element-ui';
-import Scrollbar from 'vue-scrollbars';
-import NodeChartFlow from '../dist/bundle.js';
-import '../dist/bundle.css';
-import Layout from './demo/layout.vue';
+import Vue from 'vue'
+import App from './App.vue'
+import { Row, Input, Form, FormItem, Button } from 'element-ui'
 
-Vue.use(ElementUI);
-Vue.use(Scrollbar);
-Vue.component(NodeChartFlow.name, NodeChartFlow);
+import 'element-ui/lib/theme-chalk/index.css'
+
+Vue.config.productionTip = false
+
+Vue.use(Row)
+Vue.use(Form)
+Vue.use(FormItem)
+Vue.use(Input)
+Vue.use(Button)
 
 new Vue({
-    el: '#layout',
-    render(createElem) {
-        return createElem(Layout);
-    },
-});
+  render: h => h(App),
+}).$mount('#app')
