@@ -4,13 +4,13 @@ A simple visual flow editor that forked from [node-chart-flow](https://github.co
 ## Install
 
 ```shell
-npm i chart-flow -S
+npm i @alkalixin/chart-flow -S
 ```
 
 ## Quick Start
 ```javascript
 components: {
-  ChartFlow: resolve => require(['chart-flow'], resolve),
+  ChartFlow: resolve => require(['@alkalixin/chart-flow'], resolve),
 },
 methods:{
   async registerNodeType(editor) {
@@ -20,7 +20,6 @@ methods:{
   },
 }
 ```
-then
 ```vue
 <template>
   <ChartFlow
@@ -42,6 +41,10 @@ then
   ></ChartFlow>
 </template>
 ```
+```javascript
+// main.js
+import '@alkalixin/chart-flow/dist/bundle.css'
+```
 
 ## Development
 You need `Node.js` at least `v8.9.4`
@@ -51,7 +54,7 @@ npm run serve
 ```
 
 ## Changelog
-Detailed changes for each release are documented in the [release notes](CHANGELOG).
+Detailed changes for each release are documented in the [release notes](CHANGELOG.md).
 
 ## LICENSE
 [MIT](LICENSE)
