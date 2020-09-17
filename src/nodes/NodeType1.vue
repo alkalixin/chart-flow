@@ -38,6 +38,11 @@ export default {
       this.editor.updateNodeIsErrored(this.node.nodeId, false)
 
       console.log(this.editor.traverseNode(this.node.nodeId))
+      this.editor.showNodeHighlight(this.node.nodeId, true)
+
+      setTimeout(() => {
+        this.editor.showNodeHighlight(this.node.nodeId, false)
+      }, 2000)
       this.$emit('nodeFormChange')
     },
     updateNodeLabel() {

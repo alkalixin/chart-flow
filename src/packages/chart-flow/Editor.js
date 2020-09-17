@@ -370,6 +370,11 @@ class Editor extends Events {
       return d3.select(node).datum()
     }
   }
+
+  showNodeHighlight(nodeId, show) {
+    let node = this.getSVG().select(`[id="${nodeId}"]`)
+    util.toggleClassName(node, 'highlighted', show)
+  }
 }
 
 export { NodeType, Editor as default }

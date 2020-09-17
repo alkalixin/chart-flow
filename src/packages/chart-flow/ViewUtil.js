@@ -1529,6 +1529,10 @@ class ViewUtil {
     node.datum().isChanged = show
     node.select('.node-status.changed').classed('hide', !show)
   }
+
+  static toggleClassName(node, className, show) {
+    node.select('.node-rect').classed(className, show)
+  }
 }
 
 export default ViewUtil
