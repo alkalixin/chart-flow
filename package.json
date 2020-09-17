@@ -1,7 +1,7 @@
 {
   "name": "@alkalixin/chart-flow",
   "description": "A simple flow editor from Node-Red",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "license": "MIT",
   "private": false,
   "author": "alkalixin <i@alkalixin.cn>",
@@ -11,8 +11,7 @@
     "lint": "vue-cli-service lint",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -w -o CHANGELOG.md",
     "version": "npm run changelog&&git add CHANGELOG.md",
-    "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js --progress --hide-modules",
-    "publish": "npm publish --access=public"
+    "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js --progress --hide-modules"
   },
   "dependencies": {
     "core-js": "^3.6.5",

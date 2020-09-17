@@ -6,7 +6,7 @@ class NodeType {
     // 是否有更改 | 是否为新节点
     this.isChanged = true
     // 是否有错误
-    this.isErrored = false
+    this.isErrored = true
     // 节点ID
     this.nodeId = config.nodeId
     // 坐标
