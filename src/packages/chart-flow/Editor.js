@@ -336,6 +336,11 @@ class Editor extends Events {
     datum.props = props
   }
 
+  traverseNode(nodeId) {
+    let node = this.getSVG().select(`[id="${nodeId}"]`)
+    return util.traverseNode(node, this)
+  }
+
   /**
    * 更加节点类型获取节点列表
    * @param nodeTypeId

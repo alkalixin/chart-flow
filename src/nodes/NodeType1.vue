@@ -36,6 +36,8 @@ export default {
       this.node.description = this.node.props.description
       this.editor.updateNodeIsChanged(this.node.nodeId, true)
       this.editor.updateNodeIsErrored(this.node.nodeId, false)
+
+      console.log(this.editor.traverseNode(this.node.nodeId))
       this.$emit('nodeFormChange')
     },
     updateNodeLabel() {
