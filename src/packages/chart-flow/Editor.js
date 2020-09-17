@@ -325,6 +325,10 @@ class Editor extends Events {
     util.updateNodeIsChanged(this, nodeId, show)
   }
 
+  updateNodeIsErrored(nodeId, show) {
+    util.updateNodeIsErrored(this, nodeId, show)
+  }
+
   updateNodeProps(nodeId, props) {
     let thiz = this
     let node = thiz.getSVG().select(`[id="${nodeId}"]`)

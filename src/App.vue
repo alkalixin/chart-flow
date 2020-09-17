@@ -50,12 +50,17 @@ export default {
     save() {
       let editor = this.getEditor()
       let data = editor.exportData()
-      data.forEach(node => {
+      for (let i = 0; i < data.length; i++) {
+        let node = data[i]
+        if (node.isErrored) {
+          console.log('有内鬼，终止交易', node.isErrored)
+          return false
+        }
         if (node.isChanged) {
           editor.updateNodeIsChanged(node.nodeId, false)
           node.isChanged = false
         }
-      })
+      }
       this.nodes = data
 
       sessionStorage.setItem('editorCache', JSON.stringify(data))

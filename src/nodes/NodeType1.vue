@@ -35,13 +35,11 @@ export default {
       this.updateNodeLabel()
       this.node.description = this.node.props.description
       this.editor.updateNodeIsChanged(this.node.nodeId, true)
+      this.editor.updateNodeIsErrored(this.node.nodeId, false)
       this.$emit('nodeFormChange')
     },
     updateNodeLabel() {
       this.editor.updateNodeLabel(this.node.nodeId, this.form.label)
-    },
-    updateNodeDescription() {
-      this.editor.updateNodeDescription(this.node.nodeId, this.form.description)
     },
   },
 }

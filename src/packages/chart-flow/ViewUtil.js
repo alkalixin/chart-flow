@@ -1404,6 +1404,7 @@ class ViewUtil {
           label,
           description,
           props,
+          isErrored,
         } = d3.select(node).datum()
         let RealNodeType = editor.getNodeTypeById(nodeTypeId)
         props = $.extend(true, {}, props)
@@ -1416,6 +1417,7 @@ class ViewUtil {
           label,
           description,
           props,
+          isErrored,
         })
       })
     } else {
@@ -1515,6 +1517,12 @@ class ViewUtil {
   static updateNodeIsChanged(editor, nodeId, show) {
     let node = editor.getSVG().select(`[id="${nodeId}"]`)
     this.__updateNodeIsChanged(node, show)
+  }
+
+  static updateNodeIsErrored(editor, nodeId, show) {
+    let node = editor.getSVG().select(`[id="${nodeId}"]`)
+    node.datum().isErrored = show
+    node.select('.node-status.error').classed('hide', !show)
   }
 
   static __updateNodeIsChanged(node, show) {
