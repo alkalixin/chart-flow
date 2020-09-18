@@ -26,7 +26,7 @@ class NodeType3 extends NodeType {
     editor.getRelations().forEach(lineItem => {
       if (lineItem.to.node() === to.node()) {
         // 只允许有一个输入
-        flag = false
+        // flag = false
       }
     })
     return flag

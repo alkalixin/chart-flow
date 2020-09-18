@@ -341,6 +341,11 @@ class Editor extends Events {
     return util.traverseNode(node, this)
   }
 
+  findAllNextNode(nodeId) {
+    let node = this.getSVG().select(`[id="${nodeId}"]`)
+    return util.traverseNode(node, this, new Set(), 1)
+  }
+
   /**
    * 更加节点类型获取节点列表
    * @param nodeTypeId

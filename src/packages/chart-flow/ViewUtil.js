@@ -791,7 +791,7 @@ class ViewUtil {
             editor.getSVG().select(`[id="${nid}"]`),
             editor,
             res,
-            0,
+            direction,
           )
           res = new Set([...res, ...temp, nid])
         }
@@ -803,7 +803,7 @@ class ViewUtil {
             editor.getSVG().select(`[id="${nid}"]`),
             editor,
             res,
-            0,
+            direction,
           )
           res = new Set([...res, ...temp, nid])
         }

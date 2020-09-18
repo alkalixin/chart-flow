@@ -37,7 +37,7 @@ export default {
       this.editor.updateNodeIsChanged(this.node.nodeId, true)
       this.editor.updateNodeIsErrored(this.node.nodeId, false)
 
-      console.log(this.editor.traverseNode(this.node.nodeId))
+      console.log(this.editor.findAllNextNode(this.node.nodeId))
       this.editor.showNodeHighlight(this.node.nodeId, true)
 
       setTimeout(() => {
