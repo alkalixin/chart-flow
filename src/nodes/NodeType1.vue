@@ -18,7 +18,7 @@
 <script>
 export default {
   name: 'NodeType1',
-  props: ['node', 'editor'],
+  props: ['node', 'editor', 'switchPropView'],
   data() {
     return {
       form: {

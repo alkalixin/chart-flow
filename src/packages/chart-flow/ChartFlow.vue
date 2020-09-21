@@ -13,6 +13,7 @@
           :node.sync="compt.node"
           :editor="editor"
           @nodeFormChange="handleNodeFormChange"
+          :switchPropView="switchPropView"
           ref="prop"
         ></component>
       </div>
