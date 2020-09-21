@@ -1405,6 +1405,7 @@ class ViewUtil {
           description,
           props,
           isErrored,
+          createTime,
         } = d3.select(node).datum()
         let RealNodeType = editor.getNodeTypeById(nodeTypeId)
         props = $.extend(true, {}, props)
@@ -1418,6 +1419,7 @@ class ViewUtil {
           description,
           props,
           isErrored,
+          createTime,
         })
       })
     } else {
@@ -1446,6 +1448,7 @@ class ViewUtil {
         props,
         isChanged,
         isErrored,
+        createTime,
       } = item
       let RealNodeType = editor.getNodeTypeById(nodeTypeId)
       let originalNodeId = nodeId
@@ -1453,7 +1456,7 @@ class ViewUtil {
       let nc = $.extend(
         true,
         new RealNodeType(),
-        { x, y, nodeId, label, description, props },
+        { x, y, nodeId, label, description, props, createTime },
         isNew
           ? { nodeId: ViewUtil.uuid(), prev: [], next: [] }
           : { prev, next, isChanged, isErrored },

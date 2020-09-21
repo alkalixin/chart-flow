@@ -1,6 +1,6 @@
 'use strict'
 import Constant from './Constant.js'
-
+import moment from 'moment'
 class NodeType {
   constructor(config = {}) {
     // 是否有更改 | 是否为新节点
@@ -46,6 +46,8 @@ class NodeType {
     this.label = config.label || ''
     // 节点图标
     this.icon = config.icon || null
+
+    this.createTime = config.createTime || moment().format('YYYY-MM-DD HH:mm:ss')
     // 节点自定义属性（业务属性）
     this.props = null
   }
