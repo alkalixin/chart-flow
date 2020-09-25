@@ -72,7 +72,7 @@ export default {
       },
     }
   },
-  created() {
+  beforeMount() {
     let thiz = this
     thiz.$nextTick(async function() {
       thiz.editor = new Editor(thiz.$el, thiz.config)
