@@ -1,7 +1,7 @@
 'use strict'
 
 export default {
-  PREFIX_OF_UUID: 'dt', // querySelector使用ID选择器时，选择器不能以数字开头
+  PREFIX_OF_NODEID: 'node', // querySelector使用ID选择器时，选择器不能以数字开头
   PREFIX_OF_CATAGORY: 'cata_',
   CANVAS_ID: 'dt_canvas',
   PALETTE_NODE_CONFIG: 'palette-config', // 访问缓存在.dt-palette面板中的.node-tpl节点上配置信息

@@ -140,7 +140,7 @@ class Editor extends Events {
    * 导入
    * @param{Array} list - 数据格式请参考exportData方法的返回值
    * @param{Boolean} selected - 是否选中导入的节点
-   * @param{Boolean} isNew - 是否创建新的uuid
+   * @param{Boolean} isNew - 是否创建新的节点ID
    */
   importData(list, selected = true, isNew = true) {
     util.importData(list, this, selected, isNew)

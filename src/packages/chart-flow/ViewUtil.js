@@ -1,7 +1,6 @@
 'use strict'
 import * as d3 from 'd3'
 import $ from 'jquery'
-import uuid from 'uuid/v4'
 import 'jquery-ui/ui/widgets/accordion.js'
 import 'jquery-ui/ui/widgets/draggable.js'
 import 'jquery-ui/ui/widgets/droppable.js'
@@ -12,9 +11,12 @@ import 'jquery-ui/themes/base/menu.css'
 import Constant from './Constant.js'
 
 class ViewUtil {
-  static uuid() {
-    // 生成uuid
-    return [Constant.PREFIX_OF_UUID, uuid()].join('-')
+  static nodeId() {
+    // 生成唯一ID
+    return [
+      Constant.PREFIX_OF_NODEID,
+      (1 + Math.random() * 4294967295).toString(16),
+    ].join('.')
   }
 
   static getNodeTpl4SVG(nodeTypeConfig, editor) {
@@ -317,7 +319,7 @@ class ViewUtil {
       let x = $canvas.scrollLeft() + offset.left - offset4thiz.left
       let nodeTypeId = ui.helper.data(Constant.PALETTE_NODE_CONFIG)['nodeTypeId']
       let RealNodeType = editor.getNodeTypes().get(nodeTypeId)
-      let nodeId = ViewUtil.uuid()
+      let nodeId = ViewUtil.nodeId()
       let nodeTypeConfig = new RealNodeType()
       // 根据缩放比例调整节点坐标（仅限于拖拽节点到画布上时）
       let factor = editor.getScaleFactor()
@@ -706,7 +708,7 @@ class ViewUtil {
     let lineGroups = svg.select(`.${Constant.SVG_DT_LINE_GROUP}`)
     let g = lineGroups
       .append('svg:g')
-      .attr('id', ViewUtil.uuid())
+      .attr('id', ViewUtil.nodeId())
       .classed('dt-line', true)
     let line = g
       .append('svg:path')
@@ -912,7 +914,7 @@ class ViewUtil {
       label,
       props,
     })
-    clonedDatum.nodeId = ViewUtil.uuid()
+    clonedDatum.nodeId = ViewUtil.nodeId()
     // 节点坐标适当偏移
     clonedDatum.x += 5
     clonedDatum.y += 10
@@ -1458,7 +1460,7 @@ class ViewUtil {
         new RealNodeType(),
         { x, y, nodeId, label, description, props, createTime },
         isNew
-          ? { nodeId: ViewUtil.uuid(), prev: [], next: [] }
+          ? { nodeId: ViewUtil.nodeId(), prev: [], next: [] }
           : { prev, next, isChanged, isErrored },
       )
       let newNode = ViewUtil._drawNodeOnCanvas(nc, editor)

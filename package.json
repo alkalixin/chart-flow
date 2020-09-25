@@ -1,7 +1,7 @@
 {
   "name": "@alkalixin/chart-flow",
   "description": "A simple flow editor from Node-Red",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "license": "MIT",
   "private": false,
   "author": "alkalixin <i@alkalixin.cn>",
@@ -31,6 +31,8 @@
     "babel-eslint": "^10.1.0",
     "babel-plugin-component": "^1.1.1",
     "babel-preset-es2015": "^6.24.1",
+    "conventional-changelog": "^1.1.18",
+    "conventional-changelog-cli": "^1.3.16",
     "cross-env": "^5.0.5",
     "css-loader": "^0.28.7",
     "eslint": "^6.7.2",
@@ -63,8 +65,5 @@
     "chart-flow",
     "element"
   ],
-  "homepage": "https://github.com/alkalixin/chart-flow",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  }
+  "homepage": "https://github.com/alkalixin/chart-flow"
 }
