@@ -24,6 +24,9 @@ const DEFAULT_CONFIG = {
       gap: 20,
       strokeColor: '#eee',
     },
+    sidebar: {
+      initialWidth: 700,
+    },
   },
 }
 

@@ -45,6 +45,7 @@ export default {
     showGrid: { type: Boolean, default: true },
     gapGrid: { type: Number, default: 20 },
     strokeColorGrid: { type: String, default: '#eee' },
+    sidebarInitWidth: { type: Number, default: 700 },
   },
   data() {
     return {
@@ -67,6 +68,9 @@ export default {
             enable: this.showGrid,
             gap: this.gapGrid,
             strokeColor: this.strokeColorGrid,
+          },
+          sidebar: {
+            initialWidth: this.sidebarInitWidth,
           },
         },
       },

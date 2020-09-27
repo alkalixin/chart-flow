@@ -7,6 +7,7 @@
       :data="nodes"
       :readonly="false"
       :showTips="false"
+      :sidebarInitWidth="630"
       @clickedNode="clickedNode"
       @addedNode="addedNode"
       @addedLine="addedLine"

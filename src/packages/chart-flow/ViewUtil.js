@@ -13,10 +13,7 @@ import Constant from './Constant.js'
 class ViewUtil {
   static nodeId() {
     // 生成唯一ID
-    return [
-      Constant.PREFIX_OF_NODEID,
-      (1 + Math.random() * 4294967295).toString(16),
-    ].join('.')
+    return ('w' + (1 + Math.random() * 4294967295).toString(16)).replace('.', '')
   }
 
   static getNodeTpl4SVG(nodeTypeConfig, editor) {
@@ -1308,25 +1305,37 @@ class ViewUtil {
   static renderDividerLine(editor) {
     // 渲染divider-line
     let $divider = editor.$divider
+    let initWidth = editor.config.settings.sidebar.initialWidth
+    editor.$sidebar.css({
+      'min-width': initWidth,
+      width: initWidth,
+    })
+    editor.$divider.css({
+      left: 'auto',
+      right: initWidth,
+    })
     let stop = function(e, ui) {
       let $thiz = $(this)
       window.requestAnimationFrame(function() {
         let pos = ui.position
         let original = ui.originalPosition
         let distance = original.left - pos.left
-        let minWidth = parseInt(editor.$sidebar.css('min-width')) + distance
-        if (minWidth < 80) {
-          minWidth = 0
-        } else if (minWidth > 800) {
-          minWidth = 800
+        let width = parseInt(editor.$sidebar.css('min-width')) + distance
+
+        if (width < initWidth && width > initWidth / 2) {
+          width = initWidth
+        } else if (width < initWidth / 2) {
+          width = 0
+        } else if (width > 800) {
+          width = 800
         }
         editor.$sidebar.css({
-          'min-width': minWidth,
-          width: minWidth,
+          'min-width': width,
+          width: width,
         })
         $thiz.css({
           left: 'auto',
-          right: minWidth,
+          right: width,
         })
       })
     }

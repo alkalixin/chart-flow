@@ -1,7 +1,7 @@
 {
   "name": "@alkalixin/chart-flow",
   "description": "A simple flow editor from Node-Red",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "license": "MIT",
   "private": false,
   "author": "alkalixin <i@alkalixin.cn>",
