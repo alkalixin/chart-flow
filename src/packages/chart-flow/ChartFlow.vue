@@ -85,7 +85,6 @@ export default {
 
       // 初始化
       thiz.editor.init()
-
       // 绑定事件
       thiz.editor.on('added-line', function(args) {
         thiz.$emit('addedLine', args)
@@ -160,7 +159,6 @@ export default {
 
 <style lang="less" scoped>
 .dt-editor {
-  // height: ~'calc(100vh - @{offsetHeight})';
   height: 100vh;
 }
 </style>
