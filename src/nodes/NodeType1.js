@@ -6,7 +6,7 @@ let catagory = {
   label: '分类1',
 }
 let _id = 'NodeType1'
-class NodeType3 extends NodeType {
+class NodeType1 extends NodeType {
   static id() {
     return _id
   }
@@ -50,4 +50,4 @@ class NodeType3 extends NodeType {
   }
 }
 
-export default NodeType3
+export default NodeType1

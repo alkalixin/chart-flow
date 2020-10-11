@@ -82,12 +82,6 @@ export default {
       thiz.editor = new Editor(thiz.$el, thiz.config)
       // 注册节点类型
       await thiz.registerNodeType(thiz.editor)
-      thiz.editor.getNodeTypes().forEach(RealNodeType => {
-        // 注册节点属性组件
-        RealNodeType.component()
-        // 注册节点类别
-        thiz.editor.registerCatagory(RealNodeType.getCatagory())
-      })
 
       // 初始化
       thiz.editor.init()
@@ -99,8 +93,14 @@ export default {
       thiz.editor.on('deleted-line', function(args) {
         thiz.$emit('deletedLine', args)
       })
-      thiz.editor.on('deleted-node', function(args) {
+      thiz.editor.on('deleted-node', async function(args) {
         thiz.$emit('deletedNode', args)
+        let nodes = thiz.editor.exportData()
+        if (nodes.length > 0) {
+          await thiz.switchPropView(nodes.pop())
+        } else {
+          thiz.compt.id = null
+        }
       })
       thiz.editor.on('added-node', async function({ node }) {
         // 切换视图

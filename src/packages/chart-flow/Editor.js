@@ -189,6 +189,11 @@ class Editor extends Events {
       RealNodeType = RealNodeType.default
     }
     this.___def.NodeTypes.set(RealNodeType.id(), RealNodeType)
+
+    // 注册节点属性组件
+    await RealNodeType.component()
+    // 注册节点类别
+    this.registerCatagory(RealNodeType.getCatagory())
   }
 
   /**

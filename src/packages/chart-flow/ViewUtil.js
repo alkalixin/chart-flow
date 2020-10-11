@@ -146,7 +146,7 @@ class ViewUtil {
     let $tpl = $(
       '<div class="node-tpl">' +
       `<div class="node-label">${
-        $.isFunction(nodeTypeConfig.label)
+        typeof nodeTypeConfig.label === 'function'
           ? nodeTypeConfig.label.call(null, editor)
           : nodeTypeConfig.label
       }</div>` + // 节点label
@@ -356,11 +356,14 @@ class ViewUtil {
       .css({
         position: 'absolute',
         top: '-9999px',
+        'font-size': '14px',
+        'font-family': 'Microsoft YaHei',
       })
       .text(labelTxt)
     let width = $span.appendTo('body').width()
     $span.remove()
-    return Math.min(parseInt(width), Constant.SVG_MAX_WIDTH_OF_NODE_RECT) + 15
+    const finalWidth = Math.min(parseInt(width), Constant.SVG_MAX_WIDTH_OF_NODE_RECT) + 35
+    return finalWidth
   }
 
   static _updateNodeSize(node4svg, editor) {
@@ -1514,7 +1517,7 @@ class ViewUtil {
       let node = editor.getSVG().select(`[id="${nodeId}"]`)
       node.select('.node-label').text(label)
       let nodeLabelFn = node.datum().label
-      if ($.isFunction(nodeLabelFn)) {
+      if (typeof nodeLabelFn === 'function') {
         nodeLabelFn.call(null, editor, label)
       } else {
         node.datum().label = label
