@@ -1325,11 +1325,7 @@ class ViewUtil {
         let distance = original.left - pos.left
         let width = parseInt(editor.$sidebar.css('min-width')) + distance
 
-        if (width < initWidth && width > initWidth / 2) {
-          width = initWidth
-        } else if (width < initWidth / 2) {
-          width = 0
-        } else if (width > 800) {
+        if (width > 800) {
           width = 800
         }
         editor.$sidebar.css({

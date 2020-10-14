@@ -52,4 +52,8 @@ export default {
 }
 </script>
 
-<style lang="less"></style>
+<style lang="less">
+.NodeType1 {
+  min-width: 500px;
+}
+</style>
