@@ -46,7 +46,10 @@ class NodeType {
     this.label = config.label || ''
     // 节点图标
     this.icon = config.icon || null
-
+    this.iconX = config.iconX || 5
+    this.iconY = config.iconY || 0
+    this.iconWidth = config.iconWidth || 20
+    this.iconHeight = config.iconHeight || 30
     this.createTime = config.createTime || moment().format('YYYY-MM-DD HH:mm:ss')
     // 节点自定义属性（业务属性）
     this.props = null

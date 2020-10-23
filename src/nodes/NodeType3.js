@@ -44,6 +44,10 @@ class NodeType3 extends NodeType {
       color: '#e7e7ae',
       label: 'NodeType3',
       icon: null,
+      iconX: 60,
+      iconY: 0,
+      iconWidth: 20,
+      iconHeight: 30,
       nodeTypeId: _id,
     })
     this.props = {}

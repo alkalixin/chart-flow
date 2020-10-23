@@ -69,10 +69,10 @@ class ViewUtil {
       .attr('fill-opacity', 0.05)
     g4icons
       .append('image')
-      .attr('x', 5)
-      .attr('y', 0)
-      .attr('width', 20)
-      .attr('height', 30)
+      .attr('x', nodeTypeConfig.iconX || 5)
+      .attr('y', nodeTypeConfig.iconY || 0)
+      .attr('width', nodeTypeConfig.iconWidth || 20)
+      .attr('height', nodeTypeConfig.iconHeight || 30)
       .attr('href', `${nodeTypeConfig.icon || require('./css/icon/default.png')}`)
     g4icons
       .append('svg:path')
