@@ -35,12 +35,13 @@ export default {
       this.updateNodeLabel()
       this.node.description = this.node.props.description
       this.editor.updateNodeIsChanged(this.node.nodeId, true)
-      this.editor.updateNodeIsErrored(this.node.nodeId, false)
+      this.editor.updateNodeIsErrored(this.node.nodeId, true)
 
       console.log(this.editor.findAllNextNode(this.node.nodeId))
       this.editor.showNodeHighlight(this.node.nodeId, true)
 
       setTimeout(() => {
+        this.editor.updateNodeIsErrored(this.node.nodeId, false)
         this.editor.showNodeHighlight(this.node.nodeId, false)
       }, 2000)
       this.$emit('nodeFormChange')

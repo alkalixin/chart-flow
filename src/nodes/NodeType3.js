@@ -49,6 +49,7 @@ class NodeType3 extends NodeType {
       iconWidth: 20,
       iconHeight: 30,
       nodeTypeId: _id,
+      initShowError: true,
     })
     this.props = {}
   }

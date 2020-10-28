@@ -116,7 +116,9 @@ class ViewUtil {
     }
 
     // span.node-status.error
-    g4node
+    let g4error = g4node.append('svg:g')
+    g4error.append('svg:title').text(nodeTypeConfig.isErroredDesc)
+    g4error
       .append('svg:rect')
       .attr('fill', Constant.DEFAULT_NODE_STATUS_ERROR_COLOR)
       .attr('width', 8)
@@ -125,9 +127,12 @@ class ViewUtil {
       .attr('rx', 5)
       .attr('ry', 5)
       .attr('class', 'node-status error')
-      .classed('hide', !nodeTypeConfig.isErrored)
+      .classed('hide', !nodeTypeConfig.isErrored || !nodeTypeConfig.initShowError)
+
     // span.node-status.changed
-    g4node
+    let g4changed = g4node.append('svg:g')
+    g4changed.append('svg:title').text(nodeTypeConfig.isChangedDesc)
+    g4changed
       .append('svg:rect')
       .attr('fill', Constant.DEFAULT_NODE_STATUS_CHANGED_COLOR)
       .attr('width', 8)

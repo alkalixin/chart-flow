@@ -45,6 +45,7 @@ class NodeType2 extends NodeType {
       label: 'NodeType2',
       icon: null,
       nodeTypeId: _id,
+      initShowError: false,
     })
     this.props = {}
   }

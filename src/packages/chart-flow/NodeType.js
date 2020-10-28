@@ -7,6 +7,9 @@ class NodeType {
     this.isChanged = true
     // 是否有错误
     this.isErrored = true
+
+    // 初始化时是否显示红点
+    this.initShowError = config.initShowError
     // 节点ID
     this.nodeId = config.nodeId
     // 坐标
@@ -51,6 +54,9 @@ class NodeType {
     this.iconWidth = config.iconWidth || 20
     this.iconHeight = config.iconHeight || 30
     this.createTime = config.createTime || moment().format('YYYY-MM-DD HH:mm:ss')
+
+    this.isChangedDesc = config.isChangedDesc || '未保存'
+    this.isErroredDesc = config.isErroredDesc || '错误'
     // 节点自定义属性（业务属性）
     this.props = null
   }
