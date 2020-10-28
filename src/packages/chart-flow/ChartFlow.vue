@@ -98,7 +98,9 @@ export default {
         if (nodes.length > 0) {
           await thiz.switchPropView(nodes.pop())
         } else {
-          thiz.compt.id = null
+          thiz.$nextTick(e => {
+            thiz.compt.id = null
+          })
         }
       })
       thiz.editor.on('added-node', async function({ node }) {
