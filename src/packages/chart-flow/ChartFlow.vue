@@ -116,8 +116,10 @@ export default {
         thiz.$emit('onReRenderNodes', thiz, nodes)
       })
       thiz.editor.on('clicked-node', async function({ node }) {
-        // 切换视图
-        await thiz.switchPropView(node.datum())
+        if (node.datum().nodeId !== thiz.compt.node.nodeId) {
+          // 切换视图
+          await thiz.switchPropView(node.datum())
+        }
         thiz.$emit('clickedNode', node)
       })
       thiz.editor.on('drag-nodes', () => {
