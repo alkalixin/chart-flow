@@ -8,14 +8,16 @@
     <div class="divider-line"></div>
     <div class="dt-side-bar">
       <div class="dt-prop-box">
-        <component
-          :is="compt.id"
-          :node.sync="compt.node"
-          :editor="editor"
-          @nodeFormChange="handleNodeFormChange"
-          :switchPropView="switchPropView"
-          ref="prop"
-        ></component>
+        <el-scrollbar>
+          <component
+            :is="compt.id"
+            :node.sync="compt.node"
+            :editor="editor"
+            @nodeFormChange="handleNodeFormChange"
+            :switchPropView="switchPropView"
+            ref="prop"
+          ></component>
+        </el-scrollbar>
       </div>
       <div class="divider-horizonal"></div>
       <div class="dt-tip-box"></div>
