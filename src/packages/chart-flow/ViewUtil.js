@@ -347,6 +347,7 @@ class ViewUtil {
       containment: editor.$el,
       start,
       drag,
+      appendTo: '.dt-editor',
     })
     editor.$canvas.droppable({
       accept: '.node-tpl',

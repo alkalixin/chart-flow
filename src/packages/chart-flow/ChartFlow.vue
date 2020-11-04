@@ -1,8 +1,12 @@
 <template>
   <div class="dt-editor">
-    <div class="dt-palette"></div>
+    <el-scrollbar class="dt-palette-wrap">
+      <div class="dt-palette"></div>
+    </el-scrollbar>
     <div class="dt-workspace">
-      <div class="dt-canvas"></div>
+      <el-scrollbar>
+        <div class="dt-canvas"></div>
+      </el-scrollbar>
       <footer class="dt-footer"></footer>
     </div>
     <div class="divider-line"></div>
