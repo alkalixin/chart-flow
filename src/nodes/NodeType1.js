@@ -46,6 +46,8 @@ class NodeType1 extends NodeType {
       icon: null,
       nodeTypeId: _id,
       initShowError: false,
+      borderColor: '#fff',
+      iconBackgroundColor: '#bbb',
     })
     this.props = {}
   }

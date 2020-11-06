@@ -40,6 +40,7 @@ class ViewUtil {
       .append('svg:g')
       .attr('class', Constant.SVG_DT_NODE)
       .attr('id', nodeTypeConfig.nodeId)
+
     // rect.node-rect
     g4node
       .append('svg:rect')
@@ -50,6 +51,8 @@ class ViewUtil {
       .attr('width', 140)
       .attr('height', 30)
       .attr('fill', nodeTypeConfig.color)
+      .attr('stroke', nodeTypeConfig.borderColor)
+
     // g.node-icon-group
     let g4icons = g4node
       .append('svg:g')
@@ -58,15 +61,10 @@ class ViewUtil {
       .attr('y', 0)
       .style('pointer-events', 'none')
     g4icons
-      .append('svg:rect')
-      .attr('class', 'shape')
-      .attr('x', 0)
-      .attr('y', 0)
-      .attr('width', 30)
-      .attr('height', 30)
-      .attr('fill', '#000')
-      .attr('stroke', 'none')
-      .attr('fill-opacity', 0.05)
+      .append('svg:path')
+      .attr('d', 'M1 5a4 4 0 0 1 4 -4h25v28h-25a4 4 0 0 1 -4 -4z')
+      .attr('fill', nodeTypeConfig.iconBackgroundColor || nodeTypeConfig.color)
+      .attr('stroke', nodeTypeConfig.iconBackgroundColor || nodeTypeConfig.color)
     g4icons
       .append('image')
       .attr('x', nodeTypeConfig.iconX || 5)
@@ -81,6 +79,7 @@ class ViewUtil {
       .attr('stroke-opacity', 0.1)
       .attr('stroke-width', 1)
       .attr('stroke', '#000')
+
     // text.node-label
     g4node
       .append('svg:text')
@@ -90,6 +89,7 @@ class ViewUtil {
       .attr('dy', '0.35em')
       .attr('text-anchor', 'start')
       .text(nodeTypeConfig.label)
+
     // g.port.inputs
     if (nodeTypeConfig.inputs.enable) {
       let g = g4node.append('svg:g').attr('class', 'port inputs')
@@ -169,6 +169,12 @@ class ViewUtil {
     )
     $tpl.data(Constant.PALETTE_NODE_CONFIG, nodeTypeConfig)
     nodeTypeConfig.color && $tpl.css('background-color', nodeTypeConfig.color)
+    nodeTypeConfig.iconBackgroundColor &&
+      $tpl
+        .find('.node-icon-container')
+        .css('background-color', nodeTypeConfig.iconBackgroundColor)
+    nodeTypeConfig.borderColor && $tpl.css('border-color', nodeTypeConfig.borderColor)
+
     return $tpl
   }
 
