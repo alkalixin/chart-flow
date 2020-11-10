@@ -17,6 +17,7 @@
             :is="compt.id"
             :node.sync="compt.node"
             :editor="editor"
+            class="dt-drop-box-content"
             @nodeFormChange="handleNodeFormChange"
             :switchPropView="switchPropView"
             ref="prop"
