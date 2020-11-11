@@ -53,6 +53,7 @@ export default {
     gapGrid: { type: Number, default: 20 },
     strokeColorGrid: { type: String, default: '#eee' },
     sidebarInitWidth: { type: Number, default: 700 },
+    beforeSwitchPropView: { type: Function }, // 切换动态组件前执行
   },
   data() {
     return {
@@ -111,8 +112,11 @@ export default {
         }
       })
       thiz.editor.on('added-node', async function({ node }) {
-        // 切换视图
-        await thiz.switchPropView(node.datum())
+        let res = await thiz.beforeSwitch(node.datum())
+        if (res === 'confirm') {
+          // 切换视图
+          await thiz.switchPropView(node.datum())
+        }
         thiz.$emit('addedNode', node)
       })
       thiz.editor.on('pasted-node', function({ pastedNodes }) {
@@ -126,8 +130,11 @@ export default {
       })
       thiz.editor.on('clicked-node', async function({ node }) {
         if (node.datum().nodeId !== thiz.compt.node.nodeId) {
-          // 切换视图
-          await thiz.switchPropView(node.datum())
+          let res = await thiz.beforeSwitch(node.datum())
+          if (res === 'confirm') {
+            // 切换视图
+            await thiz.switchPropView(node.datum())
+          }
         }
         thiz.$emit('clickedNode', node)
       })
@@ -145,6 +152,9 @@ export default {
       // 切换视图
       let thiz = this
       return new Promise(resolve => {
+        if (thiz.compt.node) {
+          thiz.compt.node.isUpdateForm = false
+        }
         thiz.compt.id = null
         thiz.$nextTick(() => {
           let nodeTypeId = datum.nodeTypeId
@@ -156,6 +166,18 @@ export default {
     },
     handleNodeFormChange() {
       this.$emit('nodeChange')
+    },
+
+    async beforeSwitch(datum) {
+      if (
+        this.beforeSwitchPropView &&
+        this.compt.id !== null &&
+        this.compt.node.isUpdateForm
+      ) {
+        return await this.beforeSwitchPropView()
+      } else {
+        return 'confirm'
+      }
     },
   },
   watch: {

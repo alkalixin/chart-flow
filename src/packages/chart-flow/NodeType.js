@@ -8,6 +8,10 @@ class NodeType {
     // 是否有错误
     this.isErrored = true
 
+    // 节点中表单是否被更新且未点保存，即当该字段为false时，isChanged必定为true
+    // 用于节点之间切换前的判断
+    this.isUpdateForm = false
+
     // 初始化时是否显示红点
     this.initShowError = config.initShowError
     // 节点ID

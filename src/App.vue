@@ -4,6 +4,7 @@
     <ChartFlow
       ref="flow"
       :registerNodeType="registerNodeType"
+      :beforeSwitchPropView="beforeSwitchPropView"
       :data="nodes"
       :readonly="false"
       :showTips="false"
@@ -104,15 +105,34 @@ export default {
       console.log('node change')
       this.isChanged = true
     },
+    beforeSwitchPropView() {
+      return new Promise((resolve, reject) => {
+        this.$MessageBox
+          .confirm('当前有未保存的内容，是否在离开页面前保存修改？', '确认信息', {
+            distinguishCancelAndClose: true,
+            confirmButtonText: '放弃内容',
+            cancelButtonText: '回去保存',
+          })
+          .then(() => {
+            resolve('confirm')
+          })
+          .catch(action => {
+            resolve(action)
+          })
+      })
+    },
     async registerNodeType(editor) {
-      await editor.registerNodeType(function(a) {
-        return new Promise(resolve => require(['../src/nodes/NodeType1.js'], resolve))
-      })
-      await editor.registerNodeType(function(a) {
-        return new Promise(resolve => require(['../src/nodes/NodeType2.js'], resolve))
-      })
-      await editor.registerNodeType(function(a) {
-        return new Promise(resolve => require(['../src/nodes/NodeType3.js'], resolve))
+      let arr = [1, 2, 3]
+      let promises = arr.map(this.register)
+      await Promise.all(promises)
+    },
+    async register(nodeName) {
+      let editor = this.getEditor()
+      // 注册单个节点
+      await editor.registerNodeType(function() {
+        return new Promise(resolve =>
+          require([`../src/nodes/NodeType${nodeName}.js`], resolve),
+        )
       })
     },
   },

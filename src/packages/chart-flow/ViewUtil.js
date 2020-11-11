@@ -1550,6 +1550,11 @@ class ViewUtil {
     node.select('.node-status.error').classed('hide', !show)
   }
 
+  static updateNodeIsUpdateForm(editor, nodeId, show) {
+    let node = editor.getSVG().select(`[id="${nodeId}"]`)
+    node.datum().isUpdateForm = show
+  }
+
   static __updateNodeIsChanged(node, show) {
     node.datum().isChanged = show
     node.select('.node-status.changed').classed('hide', !show)
