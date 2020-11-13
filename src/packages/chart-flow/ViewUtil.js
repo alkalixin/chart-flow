@@ -971,8 +971,8 @@ class ViewUtil {
   static _drawSVGCanvas(settings, editor) {
     // 绘制svg节点
     editor.$canvas.css({
-      width: '100%',
-      height: '100%',
+      width: settings.size,
+      height: settings.size,
     })
     let svg = d3
       .select(editor.$el.find(`#${Constant.CANVAS_ID}`).get(0))
