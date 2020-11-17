@@ -1400,6 +1400,10 @@ class ViewUtil {
       let size = editor.config.settings.size * factor
       svg.attr('width', size).attr('height', size)
       svg.select(`.${Constant.SVG_INNER_CANVAS}`).attr('transform', `scale(${factor})`)
+      editor.$canvas.css({
+        width: size,
+        height: size,
+      })
     })
   }
 
