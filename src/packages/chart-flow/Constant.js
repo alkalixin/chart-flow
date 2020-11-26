@@ -51,6 +51,8 @@ export default {
   EVENT_ON_COMPLETED: 'on-completed', // Editor初始化完成
   EVENT_ON_RERENDER_NODES: 'on-reRender-nodes', // 重绘nodes
   EVENT_DRAG_NODES: 'drag-nodes', // 拖拽节点
+  EVENT_DRAG_DIVIDER_LINE: 'drag-divider-line', // 拖拽垂直分界线
+  EVENT_DRAG_DIVIDER_HORIZONAL_LINE: 'drag-divider-horizonal-line', // 拖拽水平分界线
   DESC_LIST: [
     // 编辑器描述
     '您可以在设定中选择显示或隐藏这些提示。',

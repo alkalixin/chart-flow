@@ -142,6 +142,12 @@ export default {
         thiz.$emit('dragNodes', thiz)
         thiz.$emit('nodeChange', thiz)
       })
+      thiz.editor.on('drag-divider-line', () => {
+        thiz.$emit('dragDividerLine', thiz)
+      })
+      thiz.editor.on('drag-divider-horizonal-line', () => {
+        thiz.$emit('dragDividerHorizonalLine', thiz)
+      })
     })
   },
   destroyed() {

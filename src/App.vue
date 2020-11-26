@@ -19,6 +19,8 @@
       @onReRenderNodes="onReRenderNodes"
       @dragNodes="dragNodes"
       @nodeChange="handleNodeChange"
+      @dragDividerLine="handleDragDividerLine"
+      @dragDividerHorizonalLine="handleDragDividerHorizonalLine"
     ></ChartFlow>
   </div>
 </template>
@@ -104,6 +106,12 @@ export default {
     handleNodeChange() {
       console.log('node change')
       this.isChanged = true
+    },
+    handleDragDividerLine() {
+      console.log('drag divider line')
+    },
+    handleDragDividerHorizonalLine() {
+      console.log('drag divider horizonal line')
     },
     beforeSwitchPropView() {
       return new Promise((resolve, reject) => {

@@ -1306,6 +1306,7 @@ class ViewUtil {
           top: 'auto',
           bottom: minHeight,
         })
+        editor.emit(Constant.EVENT_DRAG_DIVIDER_HORIZONAL_LINE)
       })
     }
     $divider.draggable({
@@ -1348,6 +1349,7 @@ class ViewUtil {
           left: 'auto',
           right: width,
         })
+        editor.emit(Constant.EVENT_DRAG_DIVIDER_LINE)
       })
     }
     $divider.draggable({
